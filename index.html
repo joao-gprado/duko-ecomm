@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>Duko Ecommerce</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
@@ -15,15 +16,15 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title fw-bold">CPF</h5>
-                <p class="card-text fs-5">23784961005</p>
-                <p class="card-text fs-5">237.849.610-05</p>
+                <p class="card-text fs-5">23784961005 <button class="btn" onclick="copiarTexto(this)"><i class="fa-solid fa-copy"></i></button> </p> 
+                <p class="card-text fs-5">237.849.610-05 <button class="btn" onclick="copiarTexto(this)"><i class="fa-solid fa-copy"></i></button> </p>
                 <h5 class="card-title fw-bold">Produtos</h5>
                 <ul class="list-group mb-4">
-                    <li class="list-group-item">FIFA 25</li>
-                    <li class="list-group-item">Assassins Creed</li>
+                    <li class="list-group-item">FIFA 25 <button class="btn" onclick="copiarTexto(this)"><i class="fa-solid fa-copy"></i></button> </li>
+                    <li class="list-group-item">Assassins Creed <button class="btn" onclick="copiarTexto(this)"><i class="fa-solid fa-copy"></i></button> </li>
                 </ul>
                 <h5 class="card-title fw-bold">Número do Pedido</h5>
-                <p class="card-text fs-5">00000154</p>
+                <p class="card-text fs-5">00000154 <button class="btn" onclick="copiarTexto(this)"><i class="fa-solid fa-copy"></i></button> </p>
             </div>
         </div>
     </div>
@@ -47,5 +48,26 @@
         };
     </script>
     <script type='text/javascript' src='https://creative-impala-qaki3g-dev-ed.trailblaze.my.site.com/ESWChatSupport1743600173748/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+    <script>
+        function copiarTexto(botao) {
+            let texto;
+    
+            if (botao.parentElement.tagName === "LI") {
+                texto = botao.parentElement.textContent.replace(botao.textContent, "").trim();
+            } else {
+                texto = botao.parentElement.textContent.replace(botao.textContent, "").trim();
+            }
+    
+            const input = document.createElement("input");
+            input.value = texto;
+            document.body.appendChild(input);
+            input.select();
+            input.setSelectionRange(0, 99999);
+    
+            document.execCommand("copy");
+            document.body.removeChild(input);
+        }
+    </script>
 </body>
 </html>
